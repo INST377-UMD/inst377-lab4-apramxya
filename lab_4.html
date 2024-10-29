@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interactive Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: red;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .section {
+            border: 2px solid white;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="page-heading">HTML x JavaScript Lab</h1>
+
+    
+    <div class="section">
+        <h2>Alert Me</h2>
+        <form id="alertForm">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="button" onclick="alertMe()">Alert Me</button>
+        </form>
+    </div>
+
+    
+    <div class="section">
+        <h2>Change Color</h2>
+        <button type="button" onclick="changeColor()">Change Color</button>
+    </div>
+
+    
+    <div class="section">
+        <h2>Text Validator</h2>
+        <form id="textForm">
+            <label for="textInput">Enter text to validate:</label>
+            <input type="text" id="textInput" name="textInput">
+            <button type="button" onclick="validateText()">Validate Text</button>
+        </form>
+    </div>
+
+
+    <div class="section">
+        <h2>Add Text</h2>
+        <button type="button" onclick="addText()">Add Text</button>
+    </div>
+
+    <script>
+
+        function alertMe() {
+            var name = document.getElementById('name').value;
+            if (name) {
+                alert("What's up, " + name + "?");
+            }
+        }
+
+
+        var isRed = true;
+        function changeColor() {
+            if (isRed) {
+                document.body.style.backgroundColor = "black";
+                isRed = false;
+            } else {
+                document.body.style.backgroundColor = "red";
+                isRed = true;
+            }
+        }
+
+        function validateText() {
+            var text = document.getElementById('textInput').value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("NO!!! NO SPECIAL CHARACTERS!!!!!!");
+            } else {
+                alert("Validation successful.");
+            }
+        }
+
+
+        function addText() {
+            var heading = document.getElementById('page-heading');
+            heading.textContent += " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+        }
+    </script>
+
+</body>
+</html>
